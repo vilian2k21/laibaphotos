@@ -1,0 +1,2 @@
+- [Vite proxy preview HMR](vite-proxy-hmr.md) — disable middleware HMR unless its websocket server is wired to the unified Express server.
+- [Railway lockfile registry](railway-lockfile-registry.md) — committed npm locks must use the public registry, not Replit-internal package URLs.

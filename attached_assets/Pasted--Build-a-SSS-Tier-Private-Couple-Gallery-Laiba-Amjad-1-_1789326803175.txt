@@ -1,0 +1,709 @@
+# Build a SSS-Tier Private Couple Gallery — Laiba Amjad
+
+## 1. Project Overview
+
+Build a complete, production-ready, full-stack private photo and video gallery application inspired by Google Photos, but designed exclusively for me and my loving girlfriend, Laiba Amjad.
+
+This is not a generic gallery. It is our private digital memory world — a beautiful, elegant, romantic, highly polished space where we can preserve, explore, and relive our favorite moments together.
+
+The application must be fully functional, responsive, secure, fast, and ready to deploy to Railway.com.
+
+**Project name:** Laiba & Himel — Our Little Universe
+
+You may create a refined alternative name if it fits the design better, but the app must feel personal, premium, romantic, and exclusive to us.
+
+---
+
+# 2. CRITICAL REQUIREMENT: USE EVERY MEDIA FILE IN THE ZIP
+
+I will provide a ZIP file containing many photographs and videos of Laiba Amjad and our memories together.
+
+You must:
+
+* Extract and inspect the ZIP file.
+* Recursively discover every image and video, including files inside nested folders.
+* Preserve all supported media files.
+* Import every valid photo and video into the gallery.
+* Never skip files simply because there are many.
+* Never replace my actual photos with placeholders.
+* Never invent fake photos or videos.
+* Never overwrite original media accidentally.
+* Preserve original filenames and useful metadata wherever possible.
+* Detect duplicate files without deleting original memories.
+* Handle common formats such as JPG, JPEG, PNG, WEBP, GIF, MP4, MOV, WEBM, and other suitable formats.
+* Generate thumbnails and optimized previews while preserving the original files.
+* Make sure every imported media file is accessible from the application.
+
+### Media import verification
+
+Create an automated import report containing:
+
+* Total files discovered in the ZIP.
+* Total images imported.
+* Total videos imported.
+* Unsupported files, if any.
+* Duplicate detection results.
+* Failed imports, if any.
+* Missing thumbnails or processing errors.
+* Final number of media items available in the gallery.
+
+Do not claim that the gallery is complete unless you have actually verified the imported files.
+
+Create an admin/developer-only media integrity page that lets me confirm every file was imported successfully.
+
+**The gallery must showcase all our pictures and videos beautifully, even if the ZIP contains hundreds or thousands of files.**
+
+---
+
+# 3. TECHNOLOGY STACK
+
+Use the best practical technologies for a production-quality Railway deployment. Do not use unnecessary technologies just to make the stack sound impressive.
+
+## Frontend
+
+* React with TypeScript.
+* Vite.
+* Tailwind CSS.
+* Framer Motion for smooth animations.
+* A polished component system with consistent spacing, typography, and responsive behavior.
+* Lucide React or another high-quality icon library.
+* Modern image and video loading techniques.
+
+## Backend
+
+Use Node.js with TypeScript and Express, or another well-supported production-ready Node.js framework.
+
+The backend must handle:
+
+* Authentication.
+* Media metadata.
+* Gallery browsing.
+* Uploads and imports.
+* Albums.
+* Favorites.
+* Search.
+* Secure media access.
+* Database operations.
+* Health checks.
+* Production error handling.
+
+## Database
+
+Use PostgreSQL for production, preferably through Railway PostgreSQL or Supabase PostgreSQL.
+
+Use Prisma ORM or Drizzle ORM with proper migrations.
+
+Do not use SQLite as the primary production database if the app is expected to scale or run reliably across Railway deployments.
+
+## Media storage
+
+Design the storage layer properly.
+
+The application must not rely on temporary server filesystem storage for permanent media.
+
+Support a persistent storage provider such as:
+
+* Cloudflare R2.
+* Amazon S3-compatible storage.
+* Supabase Storage.
+* Another reliable object-storage provider.
+
+The storage provider must be configurable through environment variables.
+
+If Railway volume storage is used, explain its limitations and configure it correctly for persistent media. Do not assume the container filesystem is permanent.
+
+## Deployment
+
+The app must be compatible with:
+
+* Railway.com.
+* Railway PostgreSQL.
+* Railway environment variables.
+* Production builds.
+* A single deployable full-stack service where practical.
+* Separate frontend/backend services only if there is a clear technical advantage.
+
+Provide complete deployment instructions and production configuration.
+
+---
+
+# 4. DESIGN DIRECTION — EXTREMELY CUTE, ELEGANT, AND PREMIUM
+
+The design should feel like a private romantic sanctuary created specifically for Laiba.
+
+Avoid generic dashboard designs, boring gallery templates, excessive neon, or childish visual clutter.
+
+### Visual identity
+
+Use a sophisticated romantic aesthetic:
+
+* Soft ivory and warm white.
+* Blush pink.
+* Rose pink.
+* Muted lavender.
+* Champagne and subtle gold accents.
+* Deep plum or dark romantic mode.
+* Elegant typography.
+* Soft gradients.
+* Beautiful rounded cards.
+* Premium spacing.
+* Gentle shadows.
+* Refined glass effects used sparingly.
+* Delicate floral details.
+* Subtle hearts.
+* Dreamy but realistic imagery.
+* Smooth, graceful transitions.
+
+The app must look exceptional in both light mode and dark mode.
+
+### Typography
+
+Use a beautiful combination of:
+
+* Elegant serif typography for romantic headings.
+* Modern, readable sans-serif typography for the interface.
+* A refined handwritten or script accent only where it improves the design.
+
+Do not use decorative fonts excessively or sacrifice readability.
+
+### Emotional atmosphere
+
+When Laiba opens the gallery, it should feel like entering a place made with love.
+
+The design should communicate:
+
+> Every picture is a memory. Every video is a moment. Every moment belongs to us.
+
+---
+
+# 5. HOMEPAGE / HERO EXPERIENCE
+
+Create a stunning, responsive homepage that introduces our private gallery.
+
+Include:
+
+* A beautiful romantic welcome message.
+* Our names: Himel & Laiba.
+* A short personalized subtitle.
+* A tasteful animated heart or floral visual.
+* A featured memory section.
+* A prominent button to explore our gallery.
+* A total media count.
+* A recently added memories section.
+* A beautiful footer with a romantic message.
+
+Example copy:
+
+> Welcome to Our Little Universe
+
+> A private collection of the moments, smiles, memories, and love that make us who we are.
+
+Use elegant animations, but make the page load quickly and remain usable on low-end devices.
+
+Do not use excessive animation that causes lag.
+
+---
+
+# 6. GOOGLE PHOTOS-INSPIRED GALLERY FEATURES
+
+Build a complete gallery experience inspired by Google Photos, with a more romantic and personalized interface.
+
+## Main gallery
+
+Include:
+
+* All photos and videos in a beautiful responsive grid.
+* Masonry-style or justified gallery layout where appropriate.
+* Automatic grouping by date.
+* Date headings.
+* Smooth loading.
+* Lazy loading.
+* Thumbnail previews.
+* Video duration badges.
+* Play icons on videos.
+* Favorite indicators.
+* Selection mode.
+* Multi-select support.
+* Bulk actions.
+* Infinite scrolling or efficient pagination.
+* Virtualized rendering if needed for very large galleries.
+
+The gallery must remain fast even with thousands of media items.
+
+## Media viewer
+
+When a photo is opened:
+
+* Display it in a beautiful full-screen viewer.
+* Support high-resolution viewing.
+* Add previous/next navigation.
+* Support keyboard navigation on desktop.
+* Support swipe navigation on mobile.
+* Show filename and date where available.
+* Display a favorite button.
+* Display download functionality only for authenticated users.
+* Add a close button.
+* Support zooming.
+* Preserve image quality.
+* Handle portrait, landscape, and unusual aspect ratios correctly.
+
+When a video is opened:
+
+* Use a polished video player.
+* Support play/pause.
+* Volume controls.
+* Fullscreen.
+* Seek bar.
+* Video duration.
+* Poster thumbnails.
+* Mobile-friendly controls.
+* Efficient streaming and loading.
+
+Do not force users to download a video just to watch it.
+
+---
+
+# 7. ALBUMS AND MEMORIES
+
+Create beautiful albums that we can use to organize our relationship memories.
+
+Default albums could include:
+
+* All Memories.
+* Favorite Moments.
+* Photos of Laiba.
+* Our Videos.
+* Our Favorite Pictures.
+* Recently Added.
+* Special Days.
+
+Allow authenticated users to:
+
+* Create albums.
+* Rename albums.
+* Delete albums without deleting original media.
+* Add and remove media from albums.
+* Reorder album covers.
+* Set a custom album cover.
+* View album media in a beautiful layout.
+
+Do not hardcode fake album content. Populate albums with real imported media where appropriate.
+
+---
+
+# 8. SEARCH AND FILTERING
+
+Build a fast, useful search system.
+
+Support:
+
+* Search by filename.
+* Search by album.
+* Search by date.
+* Filter photos.
+* Filter videos.
+* Filter favorites.
+* Sort newest first.
+* Sort oldest first.
+* Sort by filename.
+* Search across all imported media.
+
+If you implement AI-powered image recognition, make it optional and privacy-conscious.
+
+Do not upload our private photos to third-party AI services without explicit configuration and consent.
+
+---
+
+# 9. ROMANTIC FEATURES FOR LAIBA
+
+Add thoughtful features that make this more than a standard gallery.
+
+## Memory details
+
+Each media item can have:
+
+* A title.
+* A caption.
+* A personal note.
+* A date.
+* A favorite status.
+* Album associations.
+* Optional location metadata.
+* Optional tags.
+
+## Love notes
+
+Create a dedicated section where we can write and save personal notes for each other.
+
+Examples:
+
+* “A memory I never want to forget.”
+* “Why this picture makes me smile.”
+* “A little message for Laiba.”
+* “Things I love about you.”
+
+The notes should be editable, beautifully displayed, and securely stored.
+
+## Featured memories
+
+Allow us to pin selected photos or videos to a featured section on the homepage.
+
+## Memory of the day
+
+Optionally display a random or selected memory with a gentle romantic message.
+
+Do not make this feature annoying or repetitive.
+
+---
+
+# 10. AUTHENTICATION AND PRIVACY
+
+This is an extremely important requirement.
+
+Only me and Laiba Amjad should be able to access the gallery.
+
+Implement secure authentication with:
+
+* Email and password login.
+* Secure password hashing.
+* Session management or secure token-based authentication.
+* HttpOnly cookies where appropriate.
+* Secure logout.
+* Password reset support if configured.
+* Rate limiting.
+* Input validation.
+* Server-side authorization checks.
+* Protection against unauthorized media access.
+* Secure upload validation.
+* Protection against path traversal.
+* Protection against common web vulnerabilities.
+
+Use an allowlist-based private access system.
+
+Do not rely on simply hiding the gallery URL.
+
+Do not expose private media through publicly accessible URLs unless they are properly protected and intentionally configured.
+
+Never store passwords in plaintext.
+
+Never commit secrets, API keys, database credentials, or environment files to GitHub.
+
+Create a setup process where I can securely configure the two permitted accounts.
+
+---
+
+# 11. ADMIN AND MEDIA MANAGEMENT
+
+Create a private admin interface accessible only to the authorized owner/admin account.
+
+Features:
+
+* Import media from the ZIP.
+* View import status.
+* See the total number of photos and videos.
+* Review failed imports.
+* Retry failed processing.
+* Manage albums.
+* Edit captions and metadata.
+* Delete media with confirmation.
+* Restore deleted media where practical.
+* Manage authorized accounts.
+* View storage usage.
+* Run media integrity checks.
+* Rebuild missing thumbnails.
+* View system health.
+
+Do not expose admin functionality to ordinary gallery users.
+
+---
+
+# 12. PERFORMANCE AND LARGE MEDIA LIBRARY
+
+The ZIP may contain a large number of pictures and videos.
+
+Optimize the app for:
+
+* Low-memory devices.
+* Slow internet connections.
+* Mobile devices.
+* Large gallery datasets.
+* Efficient database queries.
+* Lazy loading.
+* Thumbnail generation.
+* Responsive image sizes.
+* Video poster generation.
+* Pagination or virtualization.
+* Caching.
+* Efficient API responses.
+* Avoiding unnecessary re-renders.
+* Avoiding loading every original image simultaneously.
+
+Do not load thousands of full-resolution images at once.
+
+Use appropriate image sizes based on the device and viewer.
+
+Ensure the gallery remains smooth and visually attractive.
+
+---
+
+# 13. RESPONSIVE DESIGN
+
+The app must work beautifully on:
+
+* Desktop.
+* Laptop.
+* Tablet.
+* Android phones.
+* iPhones.
+* Small screens.
+* Large screens.
+
+The mobile experience must not feel like a broken desktop website.
+
+Include:
+
+* Mobile navigation.
+* Touch-friendly controls.
+* Responsive gallery columns.
+* Mobile-friendly media viewer.
+* Responsive typography.
+* Safe spacing around buttons.
+* Proper handling of portrait images and videos.
+* Accessible focus states.
+
+Test at common viewport sizes, including narrow mobile screens.
+
+---
+
+# 14. RAILWAY DEPLOYMENT REQUIREMENTS
+
+Make the project deployment-ready for Railway.com.
+
+Provide:
+
+* A complete `package.json`.
+* A production build script.
+* A production start script.
+* Correct TypeScript configuration.
+* Correct Vite configuration.
+* Backend production configuration.
+* Database migration scripts.
+* Environment variable documentation.
+* Health check endpoint.
+* Correct port handling using Railway's `PORT` variable.
+* Proper static file serving if using a unified service.
+* Secure CORS configuration.
+* Production error handling.
+* Database connection pooling where appropriate.
+* Storage provider configuration.
+* Deployment instructions from GitHub to Railway.
+
+The app must not depend on local development-only paths.
+
+Do not hardcode `localhost` into production configuration.
+
+Include a complete `.env.example` containing placeholders only.
+
+---
+
+# 15. DATABASE AND API QUALITY
+
+Use a clean, maintainable architecture.
+
+Separate:
+
+* Frontend components.
+* Backend routes.
+* Controllers.
+* Services.
+* Database layer.
+* Authentication.
+* Media processing.
+* Storage integration.
+* Validation.
+* Error handling.
+
+Use proper database relationships for:
+
+* Users.
+* Media items.
+* Albums.
+* Album-media associations.
+* Favorites.
+* Captions.
+* Love notes.
+* Import jobs.
+* Media processing status.
+
+Use database indexes for common queries.
+
+Add proper validation for all API inputs.
+
+Do not put the entire application into one massive file.
+
+---
+
+# 16. ACCESSIBILITY
+
+Make the app usable and accessible.
+
+Include:
+
+* Proper button labels.
+* Keyboard navigation.
+* Visible focus states.
+* Accessible media controls.
+* Alt text for images.
+* Meaningful empty states.
+* Readable contrast.
+* Reduced-motion support.
+* Accessible error messages.
+* Screen-reader-friendly controls.
+
+Romantic design must never compromise usability.
+
+---
+
+# 17. ERROR HANDLING AND RELIABILITY
+
+Handle every important failure gracefully.
+
+Examples:
+
+* Broken image.
+* Corrupted video.
+* Failed upload.
+* Failed thumbnail generation.
+* Missing database record.
+* Storage provider outage.
+* Invalid login.
+* Expired session.
+* Network failure.
+* Empty gallery.
+* Unsupported file format.
+
+Display elegant, helpful error messages.
+
+Never allow one corrupted media file to crash the entire gallery.
+
+---
+
+# 18. TESTING AND VERIFICATION
+
+Before declaring the project complete:
+
+* Run the frontend build.
+* Run the backend build.
+* Run database migrations.
+* Test authentication.
+* Test authorization.
+* Test media import.
+* Test image viewing.
+* Test video playback.
+* Test album creation.
+* Test favorites.
+* Test search.
+* Test responsive layouts.
+* Test production startup.
+* Test Railway-compatible configuration.
+* Test the media integrity report.
+* Verify every supported media file from the ZIP is accounted for.
+
+Fix all build errors, runtime errors, broken routes, missing imports, and obvious UI bugs.
+
+Do not leave placeholder buttons or unfinished features.
+
+---
+
+# 19. DEVELOPMENT WORKFLOW
+
+Follow this workflow carefully:
+
+### Phase 1 — Inspect and plan
+
+First inspect the ZIP file and understand:
+
+* Number of media files.
+* File formats.
+* Folder structure.
+* Approximate media size.
+* Potential processing requirements.
+
+Then inspect the development environment and choose the best practical architecture.
+
+### Phase 2 — Build the foundation
+
+Create:
+
+* Full project structure.
+* Database schema.
+* Authentication.
+* Storage integration.
+* Media import system.
+* Backend API.
+* Frontend shell.
+
+### Phase 3 — Build the gallery
+
+Implement:
+
+* Main gallery.
+* Albums.
+* Media viewer.
+* Search.
+* Favorites.
+* Metadata.
+* Responsive layouts.
+
+### Phase 4 — Make it romantic
+
+Implement:
+
+* Premium visual design.
+* Elegant animations.
+* Love notes.
+* Featured memories.
+* Personalized homepage.
+* Light and dark themes.
+
+### Phase 5 — Import and verify
+
+Import all ZIP media and verify the final media count.
+
+### Phase 6 — Test and deploy
+
+Run all tests, fix errors, build for production, and provide Railway deployment instructions.
+
+---
+
+# 20. IMPORTANT RULES
+
+1. Do not build a generic template and call it finished.
+2. Do not skip any valid photo or video from the ZIP.
+3. Do not invent media files.
+4. Do not use fake data in the final gallery.
+5. Do not expose our private memories publicly.
+6. Do not use external image URLs in place of our actual photos.
+7. Do not sacrifice performance for unnecessary visual effects.
+8. Do not use an insecure authentication shortcut.
+9. Do not claim deployment readiness without testing the production build.
+10. Do not claim all media was imported without verification.
+11. Do not overwrite original media files.
+12. Do not leave unfinished features disguised as completed features.
+13. Do not make the design overly childish or cluttered.
+14. Do not use unnecessary technologies that make maintenance difficult.
+15. Keep the entire application maintainable, secure, and scalable.
+
+---
+
+# 21. FINAL DELIVERABLE
+
+Deliver a complete, beautiful, private, full-stack gallery application for Himel and Laiba.
+
+The final result should feel like:
+
+**Google Photos + a private romantic memory book + a premium couple's digital universe.**
+
+It should be technically excellent, visually stunning, emotionally meaningful, and ready for deployment to Railway.com.
+
+Build it with care, attention to detail, and respect for the fact that every photograph and video in this application represents a real memory of Laiba Amjad and our relationship.
